@@ -3,35 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kedai Anteiku.srg</title>
+    <title>Nama Dimsum X - The New Culture</title>
     <style>
-        /* --- CSS STYLING --- */
+        /* --- CSS STYLING GAYA "KALCER" (URBAN MINIMALIST) --- */
         :root {
-            --primary-color: #5d4037; /* Coklat Kopi Tua */
-            --secondary-color: #a1887f; /* Coklat Muda */
-            --light-color: #f5f5f5; /* Background ringan */
-            --dark-color: #212121; /* Teks gelap */
-            --accent-color: #ffb74d; /* Warna Aksen (misalnya, untuk hover/active) */
+            --primary-color: #000000; /* Hitam Dominan */
+            --secondary-color: #FFFFFF; /* Putih Kontras */
+            --accent-color: #00FFFF; /* CYAN NEON (Warna Kalcer) */
+            --text-color: #FAFAFA; /* Teks Utama */
+            --highlight-color: #FF00FF; /* Magenta Neon (Aksen Tambahan) */
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial Black', sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            background-color: var(--light-color);
-            color: var(--dark-color);
+            background-color: var(--primary-color);
+            color: var(--text-color);
             scroll-behavior: smooth;
         }
 
         header {
             background: var(--primary-color);
-            color: white;
-            padding: 1em 0;
+            color: var(--secondary-color);
+            padding: 1.5em 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid var(--accent-color); /* Garis Kontras */
         }
 
         header .container {
@@ -43,11 +43,17 @@
             padding: 0 20px;
         }
 
+        header h1 {
+            font-size: 1.8em;
+            letter-spacing: 5px;
+        }
+
         nav a {
-            color: white;
+            color: var(--secondary-color);
             text-decoration: none;
             margin: 0 15px;
-            font-weight: 500;
+            font-weight: 700;
+            text-transform: uppercase;
             transition: color 0.3s;
         }
 
@@ -62,119 +68,144 @@
         }
 
         section {
-            padding: 80px 0;
+            padding: 100px 0; /* Padding lebih besar */
             text-align: center;
         }
 
         h2 {
-            font-size: 2.2em;
-            color: var(--primary-color);
-            margin-bottom: 10px;
+            font-size: 3em;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            border-bottom: 4px solid var(--highlight-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        
+        p {
+            font-family: Arial, sans-serif;
+            font-weight: 400;
         }
 
         /* --- HERO SECTION --- */
         #hero {
-            background: url('https://via.placeholder.com/1600x800?text=Foto+Estetik+Kedai+Kopi+Anda') no-repeat center center/cover;
-            color: white;
-            height: 80vh; /* Sedikit lebih tinggi */
+            background: url('https://via.placeholder.com/1600x800?text=URBAN+DIMSUM+AESTHETIC') no-repeat center center/cover;
+            height: 90vh; 
             display: flex;
             align-items: center;
             justify-content: center;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
             text-align: center;
         }
 
         #hero h1 {
-            font-size: 4em;
-            margin-bottom: 0.2em;
-            line-height: 1.1;
+            font-size: 5.5em;
+            color: var(--accent-color);
+            line-height: 1.0;
+            background: rgba(0, 0, 0, 0.7); /* Background untuk teks */
+            padding: 10px 20px;
+            border-left: 5px solid var(--highlight-color);
         }
 
         .cta-button {
             display: inline-block;
-            background: var(--secondary-color);
-            color: white;
-            padding: 12px 25px;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 15px 30px;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 25px;
+            border-radius: 0; /* Kotak tegas */
+            margin-top: 30px;
             font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background 0.3s, transform 0.2s;
+            letter-spacing: 2px;
+            transition: background 0.3s, color 0.3s;
+            box-shadow: 0 0 15px var(--accent-color);
         }
 
         .cta-button:hover {
-            background: var(--primary-color);
-            transform: translateY(-2px);
+            background: var(--highlight-color);
+            color: var(--secondary-color);
+            box-shadow: 0 0 20px var(--highlight-color);
         }
 
+        /* --- TENTANG KAMI --- */
+        #tentang {
+            background-color: #1a1a1a;
+        }
+        
         /* --- MENU SECTION --- */
         #menu .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-            text-align: left;
+            gap: 40px;
+            margin-top: 50px;
+            text-align: center;
         }
 
         .menu-item {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: box-shadow 0.3s;
+            background: #222;
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--highlight-color);
+            transition: transform 0.3s;
         }
 
         .menu-item:hover {
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: scale(1.05);
+            background: #2b2b2b;
+            box-shadow: 0 0 20px var(--accent-color);
         }
 
         .menu-item img {
             width: 100%;
-            height: 200px;
+            height: 250px;
             object-fit: cover;
-            border-radius: 6px;
-            margin-bottom: 15px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+            border: 2px solid var(--secondary-color);
         }
 
         .menu-item h3 {
-            color: var(--primary-color);
+            color: var(--accent-color);
             margin-top: 0;
+            font-size: 1.5em;
+            text-transform: uppercase;
         }
 
         .menu-item .price {
             font-weight: bold;
-            color: var(--secondary-color);
-            font-size: 1.1em;
-            margin-top: 10px;
+            color: var(--highlight-color);
+            font-size: 1.4em;
+            margin-top: 15px;
         }
         
-        /* --- GALERI SECTION (PROFESSIONAL CSS) --- */
+        /* --- GALERI SECTION --- */
         #galeri {
-            background-color: white;
+            background-color: var(--primary-color);
         }
 
         #galeri .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px; 
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 10px; 
+            margin-top: 40px;
         }
 
         .gallery-item {
             position: relative; 
             overflow: hidden; 
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            border-radius: 0;
+            box-shadow: none; /* Hilangkan shadow, fokus pada kontras */
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            aspect-ratio: 4/3; /* Mempertahankan rasio aspek 4:3 untuk gambar */
+            transition: filter 0.3s ease, transform 0.3s ease;
+            aspect-ratio: 1/1; /* Rasio 1:1, lebih modern */
         }
 
         .gallery-item:hover {
-            transform: translateY(-5px); 
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+            transform: scale(0.98); /* Sedikit zoom out */
+            filter: brightness(1.2); /* Gambar lebih terang */
         }
 
         .gallery-item img {
@@ -182,32 +213,32 @@
             height: 100%;
             object-fit: cover; 
             display: block;
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05); 
+            filter: grayscale(10%); /* Sedikit grayscale untuk kesan artsy */
         }
 
         .gallery-caption {
             position: absolute;
-            bottom: 0;
+            top: 0; 
             left: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.75); /* Lebih gelap */
-            color: white;
-            padding: 10px;
-            text-align: center;
-            font-size: 0.9em;
-            transform: translateY(100%); 
-            transition: transform 0.3s ease;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--accent-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; /* Sembunyikan sepenuhnya di awal */
+            transition: opacity 0.3s;
+            text-transform: uppercase;
+            font-size: 1.2em;
+            letter-spacing: 2px;
         }
 
         .gallery-item:hover .gallery-caption {
-            transform: translateY(0); 
+            opacity: 1; /* Tampilkan saat hover */
         }
         
-        /* Lightbox Styling */
+        /* Lightbox Styling (Dipertahankan Dark Mode) */
         .lightbox {
             display: none; 
             position: fixed;
@@ -215,101 +246,73 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9); /* Lebih gelap, lebih fokus */
+            background: rgba(0, 0, 0, 0.98); 
             z-index: 2000; 
             justify-content: center;
             align-items: center;
         }
 
         .lightbox-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-            background: white; 
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
-            display: flex; 
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .lightbox-content img {
-            max-width: 100%;
-            max-height: 80vh; 
-            display: block;
-            border-radius: 5px;
+            background: var(--primary-color); 
+            border: 2px solid var(--accent-color);
+            padding: 10px;
+            border-radius: 0;
         }
 
         .lightbox-caption {
-            color: var(--dark-color);
-            margin-top: 10px;
-            font-size: 1.1em;
-            text-align: center;
-            max-width: 100%;
-            font-weight: 600;
+            color: var(--accent-color);
+            font-family: Arial, sans-serif;
+            font-weight: 700;
         }
 
         .close-button {
-            position: fixed; /* Fixed agar selalu terlihat */
-            top: 20px;
-            right: 40px;
-            color: white;
-            font-size: 3.5em;
-            font-weight: lighter;
-            cursor: pointer;
-            z-index: 2001; 
-            text-shadow: 0 0 10px rgba(0,0,0,0.9);
-            opacity: 0.9;
-            transition: opacity 0.2s;
+            top: 30px;
+            right: 50px;
+            color: var(--secondary-color);
+            font-size: 4em;
         }
 
         .close-button:hover {
-            color: var(--accent-color);
-            opacity: 1;
+            color: var(--highlight-color);
         }
         
         /* --- KONTAK & FOOTER --- */
         #kontak {
-            background-color: var(--primary-color);
-            color: white;
+            background-color: #1a1a1a;
+            color: var(--text-color);
         }
 
         #kontak a {
             color: var(--accent-color);
             text-decoration: none;
             font-weight: bold;
+            text-transform: uppercase;
         }
         
         #kontak a:hover {
-            text-decoration: underline;
+            color: var(--highlight-color);
         }
 
         footer {
-            background: var(--dark-color);
-            color: var(--secondary-color);
+            background: var(--primary-color);
+            color: #666;
             text-align: center;
-            padding: 25px 0;
-            font-size: 0.9em;
+            padding: 30px 0;
+            font-size: 0.8em;
+            border-top: 1px solid var(--highlight-color);
         }
 
         /* --- RESPONSIF SEDERHANA --- */
         @media (max-width: 768px) {
-            header .container {
-                flex-direction: column;
-            }
-            nav {
-                margin-top: 15px;
-            }
-            nav a {
-                margin: 0 8px;
-                padding: 5px 0;
-            }
             #hero h1 {
-                font-size: 2.5em;
+                font-size: 3em;
             }
-            section {
-                padding: 40px 0;
+            h2 {
+                font-size: 2em;
+                letter-spacing: 2px;
+            }
+            .gallery-item {
+                aspect-ratio: 4/3; /* Kembali ke 4:3 di HP */
             }
         }
     </style>
@@ -318,95 +321,95 @@
 
     <header>
         <div class="container">
-            <h1>Kedai Anteiku</h1>
+            <h1>DIMSUM X</h1>
             <nav>
-                <a href="#hero">Beranda</a>
-                <a href="#tentang">Tentang</a>
-                <a href="#menu">Menu</a>
-                <a href="#galeri">Galeri</a>
-                <a href="#kontak">Kontak</a>
+                <a href="#hero">HOME</a>
+                <a href="#tentang">VISI</a>
+                <a href="#menu">MENU</a>
+                <a href="#galeri">VIBES</a>
+                <a href="#kontak">BOOK</a>
             </nav>
         </div>
     </header>
 
     <section id="hero">
         <div class="container">
-            <h1>Temukan Makanan Lezat disini!</h1>
-            <p style="font-size: 1.2em; max-width: 600px; margin: 15px auto;">Dimsum hangat memberi rasa Nyaman, Kunjungi kami!</p>
-            <a href="#menu" class="cta-button">Lihat Menu Kami</a>
+            <h1>DIMSUM X. BUKAN BIASA.</h1>
+            <p style="font-size: 1.3em; max-width: 800px; margin: 25px auto; color: var(--accent-color); text-transform: uppercase;">Tradisi bertemu modernitas. Rasa otentik, disajikan untuk kultur hari ini.</p>
+            <a href="#menu" class="cta-button">EXPLORE MENU</a>
         </div>
     </section>
 
     <section id="tentang">
         <div class="container">
-            <h2>Filosofi & Kisah Kami</h2>
-            <p style="max-width: 800px; margin: 0 auto 30px;">Didirikan pada tahun 2024, Kedai Anteiku berkomitmen menyajikan pengalaman. Kami hanya menggunakan Daging berkualitas tinggi, mendukung peternak, dan menmbuat dengan sepenuh hati.</p>
-            <p> **Misi Kami:** Menciptakan tempat di mana komunitas dapat berkumpul, berbagi cerita, dan menikmati makanan dalam suasana yang hangat dan inspiratif.</p>
+            <h2>NEW CULTURE. NEW FLAVOR.</h2>
+            <p style="max-width: 800px; margin: 0 auto 30px; color: #ccc; font-size: 1.1em;">DIMSUM X adalah proyek fusion. Kami mempertahankan resep klasik Tiongkok dan menyajikannya dalam suasana urban, minimalis, dan *edgy*. Setiap gigitan adalah perpaduan antara sejarah dan masa depan.</p>
+            <p style="color: var(--accent-color); font-weight: bold;">[#NOTYOURGRANDMASDIMSUM] [#KALCER]</p>
         </div>
     </section>
 
     <section id="menu">
         <div class="container">
-            <h2>Menu Unggulan</h2>
-            <p>Dari Dimsum menghadirkan kehangatan dan rasa nyaman.</p>
+            <h2>MENU: THE ESSENTIALS</h2>
+            <p style="color: #ccc;">Klasik yang dieksekusi dengan sempurna. Coba 3 *Essentials* kami.</p>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x200?text=Espresso+Premium" alt="Espresso">
-                    <h3>Espresso Klasik</h3>
-                    <p>Ekstraksi murni biji arabika pilihan dengan *crema* tebal. Kuat, pekat, dan otentik.</p>
-                    <p class="price">Rp 20.000</p>
+                    <img src="https://via.placeholder.com/600x600?text=HAR+GOW+PRIME" alt="Har Gow">
+                    <h3>HAR GOW PRIME</h3>
+                    <p style="color: #bbb;">Udang segar utuh dibungkus dengan kulit yang sangat tipis. Transparan dan otentik.</p>
+                    <p class="price">Rp 45.000</p>
                 </div>
                 <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x200?text=Latte+Caramel+Art" alt="Latte">
-                    <h3>Signature Caramel Latte</h3>
-                    <p>Perpaduan espresso, susu steam, dan sirup karamel spesial. Wajib coba!</p>
-                    <p class="price">Rp 38.000</p>
+                    <img src="https://via.placeholder.com/600x600?text=SIU+MAI+CHARCOAL" alt="Siu Mai">
+                    <h3>BLACK SIU MAI</h3>
+                    <p style="color: #bbb;">Siu Mai Ayam dengan sentuhan arang bambu. Rasa klasik, *look* modern.</p>
+                    <p class="price">Rp 40.000</p>
                 </div>
                 <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x200?text=Almond+Croissant" alt="Croissant">
-                    <h3>Almond Croissant</h3>
-                    <p>Roti renyah dengan isian krim almond gurih, dipanggang setiap pagi.</p>
-                    <p class="price">Rp 30.000</p>
+                    <img src="https://via.placeholder.com/600x600?text=SALTED+EGG+LAVA+PAU" alt="Bakpao">
+                    <h3>LAVA PAU</h3>
+                    <p style="color: #bbb;">Bakpao dengan isian *salted egg* yang meleleh. Wajib untuk *post* di sosmed.</p>
+                    <p class="price">Rp 35.000</p>
                 </div>
             </div>
-            <a href="#" class="cta-button" style="background: var(--primary-color);">Download Menu Lengkap (PDF)</a>
+            <a href="#" class="cta-button">FULL MENU PDF</a>
         </div>
     </section>
 
     <section id="galeri">
         <div class="container">
-            <h2>Momen & Suasana Kedai Kami</h2>
-            <p>Jelajahi keindahan dan kenyamanan yang kami tawarkan. Setiap sudut bercerita.</p>
+            <h2>THE VIBES.</h2>
+            <p style="color: #ccc;">Minimalis, Industrial, dan Fokus. Tempat yang tepat untuk *hangout*.</p>
             <div class="gallery-grid">
                 
-                <div class="gallery-item" data-caption="Interior Kedai yang Hangat dan Nyaman">
-                    <img src="https://via.placeholder.com/600x450?text=Interior+Kedai+Nyaman+1" alt="Interior Kedai">
-                    <div class="gallery-caption">Interior Kedai yang Hangat dan Nyaman</div>
+                <div class="gallery-item" data-caption="INTERIOR MINIMALIS">
+                    <img src="https://via.placeholder.com/600x600?text=INTERIOR+DIMSUM+X+1" alt="Interior Restoran">
+                    <div class="gallery-caption">INTERIOR MINIMALIS</div>
                 </div>
                 
-                <div class="gallery-item" data-caption="Barista Kami Siap Melayani Anda">
-                    <img src="https://via.placeholder.com/600x450?text=Barista+Membuat+Kopi+2" alt="Barista Bekerja">
-                    <div class="gallery-caption">Barista Kami Siap Melayani Anda</div>
+                <div class="gallery-item" data-caption="DIMSUM PLATFORM SHOT">
+                    <img src="https://via.placeholder.com/600x600?text=CLOSEUP+DIMSUM+2" alt="Penyajian Dimsum">
+                    <div class="gallery-caption">DIMSUM PLATFORM SHOT</div>
                 </div>
                 
-                <div class="gallery-item" data-caption="Detail Latte Art Indah & Sempurna">
-                    <img src="https://via.placeholder.com/600x450?text=Latte+Art+Detail+3" alt="Latte Art Detail">
-                    <div class="gallery-caption">Detail Latte Art Indah & Sempurna</div>
+                <div class="gallery-item" data-caption="NEON SIGNAGE VIBES">
+                    <img src="https://via.placeholder.com/600x600?text=NEON+SIGN+3" alt="Neon Sign">
+                    <div class="gallery-caption">NEON SIGNAGE VIBES</div>
                 </div>
                 
-                <div class="gallery-item" data-caption="Area Outdoor Asri untuk Bekerja atau Bersantai">
-                    <img src="https://via.placeholder.com/600x450?text=Area+Outdoor+Asri+4" alt="Area Outdoor">
-                    <div class="gallery-caption">Area Outdoor Asri untuk Bekerja atau Bersantai</div>
+                <div class="gallery-item" data-caption="PAKET MAKAN SIANG">
+                    <img src="https://via.placeholder.com/600x600?text=PAKET+LUNCH+4" alt="Paket Makan Siang">
+                    <div class="gallery-caption">PAKET MAKAN SIANG</div>
                 </div>
                 
-                <div class="gallery-item" data-caption="Meja Komunal untuk Bertemu Komunitas">
-                    <img src="https://via.placeholder.com/600x450?text=Meja+Komunal+5" alt="Meja Komunal">
-                    <div class="gallery-caption">Meja Komunal untuk Bertemu Komunitas</div>
+                <div class="gallery-item" data-caption="URBAN TABLE SETTING">
+                    <img src="https://via.placeholder.com/600x600?text=TABLE+SETTING+5" alt="Table Setting">
+                    <div class="gallery-caption">URBAN TABLE SETTING</div>
                 </div>
                 
-                <div class="gallery-item" data-caption="Pencahayaan Hangat di Malam Hari">
-                    <img src="https://via.placeholder.com/600x450?text=Pencahayaan+Malam+6" alt="Eksterior Kedai Malam">
-                    <div class="gallery-caption">Pencahayaan Hangat di Malam Hari</div>
+                <div class="gallery-item" data-caption="CHEF DI DAPUR TERBUKA">
+                    <img src="https://via.placeholder.com/600x600?text=OPEN+KITCHEN+6" alt="Dapur Terbuka">
+                    <div class="gallery-caption">CHEF DI DAPUR TERBUKA</div>
                 </div>
             </div>
         </div>
@@ -414,35 +417,35 @@
 
     <section id="kontak">
         <div class="container">
-            <h2>Hubungi & Kunjungi Kami</h2>
-            <p>Kami menanti kunjungan Anda di sini:</p>
-            <p style="font-size: 1.1em;">
-                <strong>Alamat:</strong> Jl. Raya Kopi No. 12, Kota Bahagia, Indonesia ☕<br>
-                <strong>Jam Operasional:</strong> Setiap Hari, **08:00 - 22:00 WIB**
+            <h2>BOOK NOW. LIMITED SLOTS.</h2>
+            <p style="color: #ccc;">Reservasi sangat disarankan untuk jam sibuk (12:00 & 19:00).</p>
+            <p style="font-size: 1.1em; color: var(--secondary-color);">
+                <strong>LOC:</strong> <span style="color: var(--accent-color);">THE COMPLEX, JALAN HYPE NO. 9</span><br>
+                <strong>OPEN:</strong> **11:00 - 23:00 WEEKDAYS / 11:00 - 01:00 WEEKENDS**
             </p>
             <p>
-                <strong>Telepon:</strong> <a href="tel:+62211234567">(021) 123-4567</a> |
-                <strong>Email:</strong> <a href="mailto:halo@namakedai.com">halo@namakedai.com</a>
+                <strong>CALL:</strong> <a href="tel:+62219876543">(021) 987-6543</a> |
+                <strong>DM:</strong> <a href="mailto:booking@dimsumx.com">BOOKING@DIMSUMX.COM</a>
             </p>
             <p style="margin-top: 20px;">
-                <a href="https://wa.me/628123456789" target="_blank" style="margin: 0 10px;">WhatsApp Kami</a> |
-                <a href="https://instagram.com/namakedai" target="_blank" style="margin: 0 10px;">Instagram Kedai</a>
+                <a href="https://wa.me/6281211122233" target="_blank" style="margin: 0 10px;">WHATSAPP BOOKING</a> |
+                <a href="https://instagram.com/dimsumx" target="_blank" style="margin: 0 10px;">INSTAGRAM (@DIMSUMX)</a>
             </p>
-            <div style="margin-top: 30px; background: white; padding: 10px; border-radius: 8px;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.386054705193!2d106.820573!3d-6.208763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1d00c3b5d5d%3A0x1d4a0f4a8e8e7c10!2sTugu%20Monas!5e0!3m2!1sid!2sid!4v1628148679000!5m2!1sid!2sid" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div style="margin-top: 30px; background: #222; padding: 10px; border-radius: 0;">
+                <iframe src="http://googleusercontent.com/maps.google.com/3" width="100%" height="350" style="border:0; filter: invert(100%);" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>Didesain oleh [Nama Anda/Perusahaan]. Powered by HTML & CSS.</p>
-            <p>© 2025 Nama Kedai. Semua Hak Cipta Dilindungi.</p>
+            <p>DIMSUM X. ALL RIGHTS RESERVED. 2025.</p>
+            <p style="color: var(--accent-color);">[#AUTHENTICITY] [#CULTURE] [#FUTURE]</p>
         </div>
     </footer>
 
     <div id="lightbox" class="lightbox">
-        <span class="close-button">&times;</span>
+        <span class="close-button">×</span>
         <div class="lightbox-content">
             <img src="" alt="" id="lightbox-img">
             <p id="lightbox-caption" class="lightbox-caption"></p>
@@ -460,28 +463,23 @@
 
             galleryItems.forEach(item => {
                 item.addEventListener('click', function() {
-                    lightbox.style.display = 'flex'; // Tampilkan lightbox
-                    // Ambil src dan alt dari elemen img di dalam item
+                    lightbox.style.display = 'flex'; 
                     lightboxImg.src = this.querySelector('img').src; 
                     lightboxImg.alt = this.querySelector('img').alt; 
-                    // Ambil caption dari data-attribute
                     lightboxCaption.textContent = this.dataset.caption; 
                 });
             });
 
-            // Tutup lightbox saat tombol close diklik
             closeButton.addEventListener('click', function() {
                 lightbox.style.display = 'none';
             });
 
-            // Tutup lightbox saat mengklik di luar gambar (area overlay)
             lightbox.addEventListener('click', function(e) {
                 if (e.target === lightbox) { 
                     lightbox.style.display = 'none';
                 }
             });
 
-            // Tutup lightbox dengan tombol ESC
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape' && lightbox.style.display === 'flex') {
                     lightbox.style.display = 'none';

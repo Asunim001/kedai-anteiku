@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nama Kedai - Kopi & Tempat Nongkrong Terbaik</title>
+    <style>
+        /* --- CSS STYLING --- */
+        :root {
+            --primary-color: #5d4037; /* Coklat Kopi Tua */
+            --secondary-color: #a1887f; /* Coklat Muda */
+            --light-color: #f5f5f5; /* Background ringan */
+            --dark-color: #212121; /* Teks gelap */
+            --accent-color: #ffb74d; /* Warna Aksen (misalnya, untuk hover/active) */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1em 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            background: url('https://via.placeholder.com/1600x800?text=Foto+Estetik+Kedai+Kopi+Anda') no-repeat center center/cover;
+            color: white;
+            height: 80vh; /* Sedikit lebih tinggi */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        #hero h1 {
+            font-size: 4em;
+            margin-bottom: 0.2em;
+            line-height: 1.1;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* --- MENU SECTION --- */
+        #menu .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.3s;
+        }
+
+        .menu-item:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .menu-item h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .menu-item .price {
+            font-weight: bold;
+            color: var(--secondary-color);
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+        
+        /* --- GALERI SECTION (PROFESSIONAL CSS) --- */
+        #galeri {
+            background-color: white;
+        }
+
+        #galeri .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px; 
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            position: relative; 
+            overflow: hidden; 
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 4/3; /* Mempertahankan rasio aspek 4:3 untuk gambar */
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05); 
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.75); /* Lebih gelap */
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            transform: translateY(100%); 
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0); 
+        }
+        
+        /* Lightbox Styling */
+        .lightbox {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9); /* Lebih gelap, lebih fokus */
+            z-index: 2000; 
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            background: white; 
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            display: flex; 
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 80vh; 
+            display: block;
+            border-radius: 5px;
+        }
+
+        .lightbox-caption {
+            color: var(--dark-color);
+            margin-top: 10px;
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 100%;
+            font-weight: 600;
+        }
+
+        .close-button {
+            position: fixed; /* Fixed agar selalu terlihat */
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 3.5em;
+            font-weight: lighter;
+            cursor: pointer;
+            z-index: 2001; 
+            text-shadow: 0 0 10px rgba(0,0,0,0.9);
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .close-button:hover {
+            color: var(--accent-color);
+            opacity: 1;
+        }
+        
+        /* --- KONTAK & FOOTER --- */
+        #kontak {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        #kontak a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        #kontak a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: var(--dark-color);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.9em;
+        }
+
+        /* --- RESPONSIF SEDERHANA --- */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+            nav {
+                margin-top: 15px;
+            }
+            nav a {
+                margin: 0 8px;
+                padding: 5px 0;
+            }
+            #hero h1 {
+                font-size: 2.5em;
+            }
+            section {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Nama Kedai</h1>
+            <nav>
+                <a href="#hero">Beranda</a>
+                <a href="#tentang">Tentang</a>
+                <a href="#menu">Menu</a>
+                <a href="#galeri">Galeri</a>
+                <a href="#kontak">Kontak</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1>Temukan Kopi Terbaik Anda Hari Ini.</h1>
+            <p style="font-size: 1.2em; max-width: 600px; margin: 15px auto;">Ruang yang nyaman, biji kopi pilihan, dan senyum ramah di setiap cangkir. Kunjungi kami!</p>
+            <a href="#menu" class="cta-button">Lihat Menu Kami</a>
+        </div>
+    </section>
+
+    <section id="tentang">
+        <div class="container">
+            <h2>Filosofi & Kisah Kami</h2>
+            <p style="max-width: 800px; margin: 0 auto 30px;">Didirikan pada tahun 2020, **Nama Kedai** berkomitmen menyajikan pengalaman kopi terbaik. Kami hanya menggunakan biji kopi lokal berkualitas tinggi, mendukung petani, dan menyeduhnya dengan sepenuh hati.</p>
+            <p> **Misi Kami:** Menciptakan tempat di mana komunitas dapat berkumpul, berbagi cerita, dan menikmati kopi premium dalam suasana yang hangat dan inspiratif.</p>
+        </div>
+    </section>
+
+    <section id="menu">
+        <div class="container">
+            <h2>Menu Unggulan</h2>
+            <p>Dari *Espresso* klasik hingga kreasi unik, kami memiliki sesuatu untuk setiap selera.</p>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/300x200?text=Espresso+Premium" alt="Espresso">
+                    <h3>Espresso Klasik</h3>
+                    <p>Ekstraksi murni biji arabika pilihan dengan *crema* tebal. Kuat, pekat, dan otentik.</p>
+                    <p class="price">Rp 20.000</p>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/300x200?text=Latte+Caramel+Art" alt="Latte">
+                    <h3>Signature Caramel Latte</h3>
+                    <p>Perpaduan espresso, susu steam, dan sirup karamel spesial. Wajib coba!</p>
+                    <p class="price">Rp 38.000</p>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/300x200?text=Almond+Croissant" alt="Croissant">
+                    <h3>Almond Croissant</h3>
+                    <p>Roti renyah dengan isian krim almond gurih, dipanggang setiap pagi.</p>
+                    <p class="price">Rp 30.000</p>
+                </div>
+            </div>
+            <a href="#" class="cta-button" style="background: var(--primary-color);">Download Menu Lengkap (PDF)</a>
+        </div>
+    </section>
+
+    <section id="galeri">
+        <div class="container">
+            <h2>Momen & Suasana Kedai Kami</h2>
+            <p>Jelajahi keindahan dan kenyamanan yang kami tawarkan. Setiap sudut bercerita.</p>
+            <div class="gallery-grid">
+                
+                <div class="gallery-item" data-caption="Interior Kedai yang Hangat dan Nyaman">
+                    <img src="https://via.placeholder.com/600x450?text=Interior+Kedai+Nyaman+1" alt="Interior Kedai">
+                    <div class="gallery-caption">Interior Kedai yang Hangat dan Nyaman</div>
+                </div>
+                
+                <div class="gallery-item" data-caption="Barista Kami Siap Melayani Anda">
+                    <img src="https://via.placeholder.com/600x450?text=Barista+Membuat+Kopi+2" alt="Barista Bekerja">
+                    <div class="gallery-caption">Barista Kami Siap Melayani Anda</div>
+                </div>
+                
+                <div class="gallery-item" data-caption="Detail Latte Art Indah & Sempurna">
+                    <img src="https://via.placeholder.com/600x450?text=Latte+Art+Detail+3" alt="Latte Art Detail">
+                    <div class="gallery-caption">Detail Latte Art Indah & Sempurna</div>
+                </div>
+                
+                <div class="gallery-item" data-caption="Area Outdoor Asri untuk Bekerja atau Bersantai">
+                    <img src="https://via.placeholder.com/600x450?text=Area+Outdoor+Asri+4" alt="Area Outdoor">
+                    <div class="gallery-caption">Area Outdoor Asri untuk Bekerja atau Bersantai</div>
+                </div>
+                
+                <div class="gallery-item" data-caption="Meja Komunal untuk Bertemu Komunitas">
+                    <img src="https://via.placeholder.com/600x450?text=Meja+Komunal+5" alt="Meja Komunal">
+                    <div class="gallery-caption">Meja Komunal untuk Bertemu Komunitas</div>
+                </div>
+                
+                <div class="gallery-item" data-caption="Pencahayaan Hangat di Malam Hari">
+                    <img src="https://via.placeholder.com/600x450?text=Pencahayaan+Malam+6" alt="Eksterior Kedai Malam">
+                    <div class="gallery-caption">Pencahayaan Hangat di Malam Hari</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak">
+        <div class="container">
+            <h2>Hubungi & Kunjungi Kami</h2>
+            <p>Kami menanti kunjungan Anda di sini:</p>
+            <p style="font-size: 1.1em;">
+                <strong>Alamat:</strong> Jl. Raya Kopi No. 12, Kota Bahagia, Indonesia ☕<br>
+                <strong>Jam Operasional:</strong> Setiap Hari, **08:00 - 22:00 WIB**
+            </p>
+            <p>
+                <strong>Telepon:</strong> <a href="tel:+62211234567">(021) 123-4567</a> |
+                <strong>Email:</strong> <a href="mailto:halo@namakedai.com">halo@namakedai.com</a>
+            </p>
+            <p style="margin-top: 20px;">
+                <a href="https://wa.me/628123456789" target="_blank" style="margin: 0 10px;">WhatsApp Kami</a> |
+                <a href="https://instagram.com/namakedai" target="_blank" style="margin: 0 10px;">Instagram Kedai</a>
+            </p>
+            <div style="margin-top: 30px; background: white; padding: 10px; border-radius: 8px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.386054705193!2d106.820573!3d-6.208763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1d00c3b5d5d%3A0x1d4a0f4a8e8e7c10!2sTugu%20Monas!5e0!3m2!1sid!2sid!4v1628148679000!5m2!1sid!2sid" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Didesain oleh [Nama Anda/Perusahaan]. Powered by HTML & CSS.</p>
+            <p>© 2025 Nama Kedai. Semua Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-button">&times;</span>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-img">
+            <p id="lightbox-caption" class="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript untuk Lightbox Galeri
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            const closeButton = document.querySelector('.close-button');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    lightbox.style.display = 'flex'; // Tampilkan lightbox
+                    // Ambil src dan alt dari elemen img di dalam item
+                    lightboxImg.src = this.querySelector('img').src; 
+                    lightboxImg.alt = this.querySelector('img').alt; 
+                    // Ambil caption dari data-attribute
+                    lightboxCaption.textContent = this.dataset.caption; 
+                });
+            });
+
+            // Tutup lightbox saat tombol close diklik
+            closeButton.addEventListener('click', function() {
+                lightbox.style.display = 'none';
+            });
+
+            // Tutup lightbox saat mengklik di luar gambar (area overlay)
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) { 
+                    lightbox.style.display = 'none';
+                }
+            });
+
+            // Tutup lightbox dengan tombol ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                    lightbox.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

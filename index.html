@@ -1,418 +1,275 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nama Dimsum Gengs - Asli Parah!</title>
-    <style>
-        /* --- CSS STYLING GAYA "KALCER" (VIBRANT/LO-FI) --- */
-        :root {
-            --primary-color: #388E3C; /* Hijau Terang/Neon */
-            --secondary-color: #FFEE58; /* Kuning Neon/Stabilo */
-            --accent-color: #9C27B0; /* Ungu Kontras */
-            --dark-color: #212121;
-            --light-color: #FAFAFA;
-        }
+<style>
+    /* --- CSS STYLING GAYA "KALCER" (VIBRANT/LO-FI) --- */
+    :root {
+        --primary-color: #388E3C; 
+        --secondary-color: #FFEE58; 
+        --accent-color: #9C27B0; 
+        --dark-color: #212121;
+        --light-color: #FAFAFA;
+    }
 
-        /* Font dari Google Fonts (simulasi font kalcer) */
-        @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Press+Start+2P&family=Varela+Round&display=swap');
+    /* Font dari Google Fonts (simulasi font kalcer) */
+    /* Menggunakan font fallback jika koneksi lambat */
+    @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Press+Start+2P&family=Varela+Round&display=swap');
 
-        body {
-            font-family: 'Varela Round', sans-serif; /* Font dasar yang fun */
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            scroll-behavior: smooth;
-        }
+    body {
+        font-family: 'Varela Round', sans-serif; 
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        background-color: var(--light-color);
+        color: var(--dark-color);
+        scroll-behavior: smooth;
+    }
 
-        header {
-            background: var(--primary-color);
-            color: var(--light-color);
-            padding: 1.2em 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 5px dashed var(--secondary-color); /* Garis Putus-putus */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
+    /* Reset default margin/padding for mobile */
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 15px; /* Kurangi padding horizontal di layar besar */
+    }
 
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
+    section {
+        padding: 80px 0; 
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* --- HEADER & NAVIGASI --- */
+    header {
+        background: var(--primary-color);
+        color: var(--light-color);
+        padding: 1.2em 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 5px dashed var(--secondary-color);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header h1 {
+        font-family: 'Bungee Inline', cursive;
+        font-size: 1.6em;
+        letter-spacing: 2px;
+        color: var(--secondary-color);
+    }
+
+    nav a {
+        color: var(--light-color);
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        transition: color 0.3s;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 2px;
+    }
+
+    nav a:hover {
+        color: var(--secondary-color);
+        border-bottom-color: var(--secondary-color);
+    }
+    
+    /* Heading Fonts */
+    h2 {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 1.8em;
+        color: var(--accent-color);
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* --- HERO SECTION --- */
+    #hero {
+        background: var(--light-color);
+        height: 75vh; 
+        background-image: url('https://via.placeholder.com/1600x800?text=DIMSUM+KEREN+LO-FI');
+        background-size: cover;
+        background-position: center;
+        filter: grayscale(10%);
+    }
+
+    #hero-content {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 10px;
+        border: 4px solid var(--primary-color);
+        box-shadow: 10px 10px 0 var(--accent-color); 
+        max-width: 80%;
+    }
+
+    #hero h1 {
+        font-family: 'Bungee Inline', cursive;
+        font-size: 3em;
+        color: var(--primary-color);
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: var(--accent-color);
+        color: var(--secondary-color);
+        padding: 12px 25px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 25px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border: 3px solid var(--dark-color);
+        box-shadow: 4px 4px 0 var(--dark-color); 
+        transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    .cta-button:active {
+        transform: translate(4px, 4px);
+        box-shadow: 0 0 0 var(--dark-color);
+    }
+
+    /* --- MENU & GALERI SECTIONS --- */
+    .menu-grid, .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+        text-align: center;
+    }
+    
+    .menu-item {
+        background: var(--light-color);
+        padding: 20px;
+        border-radius: 5px;
+        border: 3px solid var(--accent-color);
+        box-shadow: 5px 5px 0 var(--primary-color);
+        transition: all 0.2s;
+    }
+    
+    .gallery-item {
+        position: relative; 
+        overflow: hidden; 
+        border: 5px solid var(--dark-color);
+        box-shadow: 8px 8px 0 var(--accent-color);
+        cursor: pointer;
+        transition: all 0.2s;
+        aspect-ratio: 16/9;
+    }
+
+    /* --- RESPONSIVITAS INTENSIF (MEDIA QUERIES) --- */
+
+    @media (max-width: 1024px) {
+        .container {
             padding: 0 20px;
         }
-
-        header h1 {
-            font-family: 'Bungee Inline', cursive; /* Font yang unik */
-            font-size: 1.6em;
-            letter-spacing: 2px;
-            color: var(--secondary-color);
-        }
-
-        nav a {
-            color: var(--light-color);
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            transition: color 0.3s;
-            border-bottom: 2px solid transparent;
-            padding-bottom: 2px;
-        }
-
-        nav a:hover {
-            color: var(--secondary-color);
-            border-bottom-color: var(--secondary-color);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        section {
-            padding: 80px 0;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
-
-        h2 {
-            font-family: 'Press Start 2P', cursive; /* Font 8-bit/pixel art */
-            font-size: 1.8em;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* --- HERO SECTION --- */
-        #hero {
-            background: var(--light-color);
-            color: var(--dark-color);
-            height: 75vh; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            /* Tambahkan foto dimsum dengan filter */
-            background-image: url('https://via.placeholder.com/1600x800?text=DIMSUM+KEREN+LO-FI');
-            background-size: cover;
-            background-position: center;
-            filter: grayscale(10%); /* Filter estetika */
-        }
-
         #hero-content {
-            background: rgba(255, 255, 255, 0.95); /* Box untuk teks */
-            padding: 30px;
-            border-radius: 10px;
-            border: 4px solid var(--primary-color);
-            box-shadow: 10px 10px 0 var(--accent-color); /* Efek 3D/Offset */
-            max-width: 80%;
+            max-width: 90%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        /* Perubahan Global */
+        section {
+            padding: 60px 0;
         }
 
+        /* Header & Navigasi */
+        header .container {
+            flex-direction: column; /* Tumpuk logo dan navigasi */
+        }
+        nav {
+            margin-top: 15px;
+        }
+        nav a {
+            margin: 0 5px;
+            font-size: 0.9em;
+            display: inline-block; /* Agar navigasi tetap horizontal */
+        }
+        
+        /* Typography */
         #hero h1 {
-            font-family: 'Bungee Inline', cursive;
-            font-size: 3em;
-            color: var(--primary-color);
-            margin: 0;
-            line-height: 1.2;
+            font-size: 2em; /* Turunkan ukuran font hero */
         }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--secondary-color);
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 25px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border: 3px solid var(--dark-color);
-            box-shadow: 4px 4px 0 var(--dark-color); /* Efek Tombol Game */
-            transition: transform 0.1s, box-shadow 0.1s;
-        }
-
-        .cta-button:active {
-            transform: translate(4px, 4px);
-            box-shadow: 0 0 0 var(--dark-color);
-        }
-
-        /* --- TENTANG KAMI --- */
-        #tentang {
-            background-color: var(--secondary-color); /* Background yang nyentrik */
-            color: var(--dark-color);
+        h2 {
+            font-size: 1.5em; /* Turunkan ukuran font section heading */
+            letter-spacing: 0.5px;
         }
         
-        #tentang p {
-            font-size: 1.1em;
-            font-weight: bold;
+        /* Grid Layout */
+        .menu-grid, .gallery-grid {
+            /* Paksakan 1 kolom pada layar yang sangat kecil (di bawah 500px) */
+            grid-template-columns: 1fr; 
+            gap: 40px; /* Tambah jarak antar item agar tidak terlalu padat */
         }
 
-        /* --- MENU SECTION --- */
-        #menu .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        .menu-item {
-            background: var(--light-color);
+        /* Hero Content */
+        #hero-content {
             padding: 20px;
-            border-radius: 5px;
-            border: 3px solid var(--accent-color);
+            box-shadow: 7px 7px 0 var(--accent-color); 
+        }
+
+        /* Menu Item Spacing */
+        .menu-item {
             box-shadow: 5px 5px 0 var(--primary-color);
-            transition: all 0.2s;
         }
 
-        .menu-item:hover {
-            transform: scale(1.03);
-            box-shadow: 7px 7px 0 var(--primary-color);
-        }
-
-        .menu-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 3px;
-            margin-bottom: 15px;
-            border: 3px solid var(--dark-color);
-        }
-
-        .menu-item h3 {
-            font-family: 'Press Start 2P', cursive;
-            color: var(--primary-color);
-            margin-top: 0;
-            font-size: 1em;
-        }
-
-        .menu-item .price {
-            font-family: Arial, sans-serif;
-            font-weight: 900;
-            color: var(--accent-color);
-            font-size: 1.3em;
-            margin-top: 10px;
-        }
-        
-        /* --- GALERI SECTION (Aura "Screen Shot") --- */
-        #galeri {
-            background-color: #fff;
-        }
-
-        #galeri .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px; 
-            margin-top: 30px;
-        }
-
+        /* Gallery Item */
         .gallery-item {
-            position: relative; 
-            overflow: hidden; 
-            border: 5px solid var(--dark-color);
-            box-shadow: 8px 8px 0 var(--accent-color);
-            cursor: pointer;
-            transition: all 0.2s;
-            aspect-ratio: 16/9; /* Rasio Video/Screenshot */
+            aspect-ratio: 4/3; /* Lebih pendek untuk tampilan mobile */
+            box-shadow: 5px 5px 0 var(--accent-color);
         }
-        
-        .gallery-item:hover {
-            transform: rotate(-1deg);
+    }
+
+    @media (max-width: 480px) {
+        /* Perubahan ekstra untuk tampilan ponsel yang sangat kecil */
+        header h1 {
+            font-size: 1.4em;
         }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-            filter: saturate(1.5); /* Warna lebih jreng */
+        nav {
+            overflow-x: auto; /* Biarkan navigasi bisa digeser horizontal jika terlalu panjang */
+            white-space: nowrap;
+            padding-bottom: 5px; /* Ruang untuk scrollbar */
         }
-
-        .gallery-caption {
-            display: none; /* Dihilangkan agar lebih simpel */
+        #hero h1 {
+            font-size: 1.8em;
         }
-        
-        /* Lightbox - Dipertahankan Lo-Fi */
-        .lightbox-content {
-            background: var(--light-color);
-            border: 5px solid var(--dark-color);
-            box-shadow: 10px 10px 0 var(--accent-color);
+        .cta-button {
+            padding: 10px 20px;
+            font-size: 0.9em;
         }
-
-        .lightbox-caption {
-            color: var(--primary-color);
+        /* Pastikan elemen lain (kontak, footer) menggunakan padding 15px */
+        .container {
+             padding: 0 15px; 
         }
+    }
 
-        .close-button {
-            color: var(--secondary-color);
-            text-shadow: 0 0 5px var(--dark-color);
-        }
+    /* --- KONTAK & FOOTER --- (dipertahankan dari kode sebelumnya) */
+    #kontak {
+        background-color: var(--primary-color);
+        color: var(--light-color);
+        border-top: 5px double var(--secondary-color);
+    }
 
-        /* --- KONTAK & FOOTER --- */
-        #kontak {
-            background-color: var(--primary-color);
-            color: var(--light-color);
-            border-top: 5px double var(--secondary-color);
-        }
+    #kontak a {
+        color: var(--secondary-color);
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 2px;
+    }
 
-        #kontak a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 2px;
-        }
+    footer {
+        background: var(--dark-color);
+        color: #aaa;
+        padding: 30px 0;
+        font-family: Arial, sans-serif;
+    }
 
-        footer {
-            background: var(--dark-color);
-            color: #aaa;
-            padding: 30px 0;
-            font-family: Arial, sans-serif;
-        }
-
-        /* --- RESPONSIF --- */
-        @media (max-width: 768px) {
-            header .container {
-                flex-direction: column;
-            }
-            #hero h1 {
-                font-size: 2em;
-            }
-            h2 {
-                font-size: 1.5em;
-            }
-            .menu-item {
-                box-shadow: 3px 3px 0 var(--primary-color);
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="container">
-            <h1>DIMSUM GENG$</h1>
-            <nav>
-                <a href="#hero">MAIN</a>
-                <a href="#tentang">LOKAL</a>
-                <a href="#menu">MENU</a>
-                <a href="#galeri">CATCH</a>
-                <a href="#kontak">GASS</a>
-            </nav>
-        </div>
-    </header>
-
-    <section id="hero">
-        <div class="container">
-            <div id="hero-content">
-                <h1>DIMSUM INI ASLI PARAH!</h1>
-                <p style="font-size: 1.1em; max-width: 600px; margin: 15px auto 25px;">Level up Dimsum lo. Rasa otentik, vibe-nya baru. Yuk, ngumpul!</p>
-                <a href="#menu" class="cta-button">CEK LIST HARGA</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="tentang">
-        <div class="container">
-            <h2>BUAT KALIAN SEMUA</h2>
-            <p style="max-width: 800px; margin: 0 auto 20px;">Kita hadir buat bawa Dimsum naik kasta. Resep boleh jadul, tapi vibe kita gak main-main. Semua bahan lokal, semua rasa *full*. Kita suka kumpul, kita suka makan, kita suka Dimsum!</p>
-            <p> **#DIMSUMLOKAL** **#KALCERASLI** **#YUKMAKAN**</p>
-        </div>
-    </section>
-
-    <section id="menu">
-        <div class="container">
-            <h2>FAVORIT GUE</h2>
-            <p>Yang paling sering di-order di sini. Gak coba, nyesel.</p>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/600x400?text=HAR+GOW+GAUL" alt="Har Gow">
-                    <h3>HAR GOW GAUL</h3>
-                    <p>Udang gede, kulit bening. Enaknya pecah di mulut.</p>
-                    <p class="price">35K</p>
-                </div>
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/600x400?text=SIU+MAI+JUICY" alt="Siu Mai">
-                    <h3>SIU MAI BOLD</h3>
-                    <p>Daging padat, jamur wangi. Bikin nagih, harus pesan lagi.</p>
-                    <p class="price">30K</p>
-                </div>
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/600x400?text=PAU+MELELEH" alt="Bakpao">
-                    <h3>PAU GILA MELELEH</h3>
-                    <p>Isian kuning telur asin yang lumer. Siap-siap jilat tangan.</p>
-                    <p class="price">25K</p>
-                </div>
-            </div>
-            <a href="#" class="cta-button">LIHAT SEMUA MENU</a>
-        </div>
-    </section>
-
-    <section id="galeri">
-        <div class="container">
-            <h2>CATCH THE VIBES</h2>
-            <p>Screenshot momen-momen terbaik di sini. Foto, post, tag kita!</p>
-            <div class="gallery-grid">
-                
-                <div class="gallery-item" data-caption="Selfie Spot Terbaik">
-                    <img src="https://via.placeholder.com/600x337?text=SELFIE+SPOT+KALCER+1" alt="Selfie Spot">
-                </div>
-                
-                <div class="gallery-item" data-caption="Piring Warna-Warni">
-                    <img src="https://via.placeholder.com/600x337?text=WARNA+WARNI+2" alt="Penyajian">
-                </div>
-                
-                <div class="gallery-item" data-caption="Tempat Ngopi Santai">
-                    <img src="https://via.placeholder.com/600x337?text=COFFEE+SPOT+3" alt="Ngopi Santai">
-                </div>
-                
-                <div class="gallery-item" data-caption="Bar Kontras">
-                    <img src="https://via.placeholder.com/600x337?text=BAR+NYENTRIK+4" alt="Bar Kontras">
-                </div>
-                
-                <div class="gallery-item" data-caption="Dimsum Ramean">
-                    <img src="https://via.placeholder.com/600x337?text=DIMSUM+RAMEAN+5" alt="Dimsum Ramean">
-                </div>
-                
-                <div class="gallery-item" data-caption="Stiker & Grafiti">
-                    <img src="https://via.placeholder.com/600x337?text=GRAFITI+WALL+6" alt="Grafiti">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="kontak">
-        <div class="container">
-            <h2>GASS KE SINI SEKARANG!</h2>
-            <p>Jangan sampai kehabisan tempat!</p>
-            <p style="font-size: 1.1em; color: var(--secondary-color);">
-                <strong>ALAMAT:</strong> JL. VIBES LAMA NO. 45, KOTA TREN 📍<br>
-                <strong>BUKA:</strong> TIAP HARI, JAM **11.00 - 23.00**
-            </p>
-            <p style="margin-top: 20px;">
-                <a href="https://wa.me/6281211122233" target="_blank" style="margin: 0 15px;">WA BUAT BOOKING</a> |
-                <a href="https://instagram.com/namadimsumkalcer" target="_blank" style="margin: 0 15px;">CEK UPDATE IG</a>
-            </p>
-            <div style="margin-top: 30px; background: #fff; padding: 10px; border-radius: 5px; border: 3px solid var(--accent-color);">
-                <iframe src="http://googleusercontent.com/maps.google.com/4" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>DIMSUM GENG$ - HAK CIPTA PUNYA KITA. 2025.</p>
-        </div>
-    </footer>
-
-    </body>
-</html>
+</style>

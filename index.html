@@ -15,7 +15,7 @@
         }
 
         /* Font dari Google Fonts (simulasi font kalcer) */
-            @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Press+Start+2P&family=Varela+Round&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Press+Start+2P&family=Varela+Round&display=swap');
 
         body {
             font-family: 'Varela Round', sans-serif; 
@@ -159,7 +159,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 90px;
+            margin-top: 40px; /* Diubah kembali ke 40px untuk konsistensi */
             text-align: center;
         }
         
@@ -187,7 +187,7 @@
         }
 
         .menu-item h3 {
-            font-family: 'Press Start 2P', cursive;
+            font-family: 'Press Start 2P', 'Varela Round', Arial, sans-serif;
             color: var(--primary-color);
             margin-top: 0;
             font-size: 1em;
@@ -224,6 +224,63 @@
 
         .gallery-caption {
             display: none; 
+        }
+
+        /* --- KRITIK & SARAN STYLING --- */
+        #feedback {
+            background-color: #f0f0f0;
+            color: var(--dark-color);
+        }
+
+        #feedback form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        #feedback label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8em;
+        }
+
+        #feedback textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 3px solid var(--accent-color);
+            border-radius: 5px;
+            box-sizing: border-box; /* Pastikan padding tidak menambah lebar */
+            font-family: 'Varela Round', sans-serif;
+            resize: vertical;
+            min-height: 100px;
+            box-shadow: 2px 2px 0 var(--dark-color);
+        }
+        
+        #feedback .feedback-button {
+            /* Menggunakan gaya CTA button yang sama */
+            background: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 12px 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 3px solid var(--dark-color);
+            box-shadow: 4px 4px 0 var(--dark-color); 
+            transition: transform 0.1s, box-shadow 0.1s;
+            cursor: pointer;
+            width: 100%;
+            font-family: 'Varela Round', sans-serif;
+            display: block; /* Agar tombol selebar container */
+        }
+        
+        #feedback .feedback-button:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0 0 0 var(--dark-color);
         }
 
         /* --- KONTAK & FOOTER --- */
@@ -290,7 +347,6 @@
             
             /* Grid Layout */
             .menu-grid, .gallery-grid {
-                /* Paksakan 1 kolom pada layar yang sangat kecil */
                 grid-template-columns: 1fr; 
                 gap: 40px; 
             }
@@ -301,14 +357,9 @@
                 box-shadow: 7px 7px 0 var(--accent-color); 
             }
 
-            /* Menu Item Spacing */
-            .menu-item {
-                box-shadow: 5px 5px 0 var(--primary-color);
-            }
-
             /* Gallery Item */
             .gallery-item {
-                aspect-ratio: 4/3; /* Lebih pendek untuk tampilan mobile */
+                aspect-ratio: 4/3; 
                 box-shadow: 5px 5px 0 var(--accent-color);
             }
         }
@@ -319,9 +370,9 @@
                 font-size: 1.4em;
             }
             nav {
-                overflow-x: auto; /* Biarkan navigasi bisa digeser horizontal jika terlalu panjang */
+                overflow-x: auto; 
                 white-space: nowrap;
-                padding-bottom: 5px; /* Ruang untuk scrollbar */
+                padding-bottom: 5px; 
             }
             #hero h1 {
                 font-size: 1.8em;
@@ -332,6 +383,9 @@
             }
             .container {
                 padding: 0 15px; 
+            }
+            #feedback form {
+                padding: 0 10px;
             }
         }
     </style>
@@ -346,6 +400,7 @@
                 <a href="#tentang">LOKAL</a>
                 <a href="#menu">MENU</a>
                 <a href="#galeri">CATCH</a>
+                <a href="#feedback">SARAN</a>
                 <a href="#kontak">GASS</a>
             </nav>
         </div>
@@ -430,6 +485,23 @@
         </div>
     </section>
 
+    <section id="feedback">
+        <div class="container">
+            <h2>KRITIK & SARAN GUE</h2>
+            <p>Bantu kita jadi lebih baik. Isi kolom di bawah ini. Feedback lo berharga banget!</p>
+            
+            <form id="feedbackForm">
+                <label for="kritik">KRITIK / MASUKAN</label>
+                <textarea id="kritik" name="kritik" placeholder="Contoh: Saus Dimsum kurang pedas..." required></textarea>
+                
+                <label for="saran">SARAN / IDE</label>
+                <textarea id="saran" name="saran" placeholder="Contoh: Tambahin menu Nasi Goreng Kalcer..." required></textarea>
+                
+                <button type="button" class="feedback-button" onclick="sendFeedback()">KIRIM KE WA (ASLI PARAH!)</button>
+                <p id="error-message" style="color: var(--accent-color); font-weight: bold; margin-top: 10px; display: none;">**WAJIB ISI KRITIK DAN SARAN**</p>
+            </form>
+        </div>
+    </section>
     <section id="kontak">
         <div class="container">
             <h2>GASS KE SINI SEKARANG!</h2>
@@ -454,7 +526,43 @@
         </div>
     </footer>
     
-    <script></script>
+    <script>
+        // Logika WhatsApp Feedback
+        function sendFeedback() {
+            const kritik = document.getElementById('kritik').value.trim();
+            const saran = document.getElementById('saran').value.trim();
+            const errorMessage = document.getElementById('error-message');
+            
+            // Nomor WhatsApp tujuan (Harus diawali dengan kode negara, tanpa + atau 0)
+            const whatsappNumber = '625179856620'; 
+            
+            // 1. Validasi: Pastikan kedua kolom terisi
+            if (kritik === '' || saran === '') {
+                errorMessage.style.display = 'block';
+                return; // Hentikan fungsi jika ada yang kosong
+            } else {
+                errorMessage.style.display = 'none';
+            }
+            
+            // 2. Format Pesan
+            let message = "Halo Kedai Anteiku.srg!\n\n";
+            message += "INI FEEDBACK KALCER DARI CUSTOMER:\n\n";
+            message += "➡️ KRITIK / MASUKAN:\n" + kritik + "\n\n";
+            message += "➡️ SARAN / IDE:\n" + saran;
+            
+            // 3. Encode Pesan untuk URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // 4. Buat URL WhatsApp
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // 5. Buka di tab baru
+            window.open(whatsappUrl, '_blank');
+
+            // Opsional: Kosongkan form setelah berhasil
+            document.getElementById('feedbackForm').reset();
+        }
+    </script>
 
 </body>
 </html>
